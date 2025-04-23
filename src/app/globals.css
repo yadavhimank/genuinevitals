@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Light theme becomes the default */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Dark Blue for "gen" */
+    --primary: 195 40% 30%;
+    --primary-rgb: 47, 91, 106;
+    --primary-foreground: 0 0% 100%;
+
+    /* Teal Blue for "uin" */
+    --secondary: 180 34% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Soft Green-Blue for "e" */
+    --accent: 175 30% 52%;
+    --accent-foreground: 0 0% 0%;
+
+    /* Yellow-Green for "Vitals" */
+    --tertiary: 58 55% 56%;
+    --tertiary-dark: 52 45% 48%;
+    --tertiary-foreground: 0 0% 0%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 25% 27%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 195 40% 30%;
+    --primary-rgb: 47, 91, 106;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 180 34% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 175 30% 52%;
+    --accent-foreground: 0 0% 98%;
+    --tertiary: 58 55% 56%;
+    --tertiary-dark: 52 45% 48%;
+    --tertiary-foreground: 0 0% 0%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 84.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background-image: radial-gradient(
+        ellipse at top,
+        rgba(var(--primary-rgb), 0.03),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at bottom,
+        rgba(76, 154, 154, 0.05),
+        transparent 50%
+      );
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+}
+
+/* Custom styling */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    hsl(var(--accent))
+  );
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.7;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
+}
+
+/* Glassmorphism utility classes */
+.glass-effect {
+  @apply bg-card/90 backdrop-blur-sm border border-border shadow-sm;
+}
+
+.glass-effect-dark {
+  @apply bg-card/95 backdrop-blur-sm border border-border shadow-md;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  @apply text-transparent bg-clip-text font-semibold;
+  background-image: linear-gradient(to right, #2f5b6a, #4c9a9a, #5aaea4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text for brand */
+.brand-gradient-text {
+  @apply text-transparent bg-clip-text font-bold;
+  background-image: linear-gradient(to right, #d0cb4d, #b1a942);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient backgrounds */
+.primary-gradient {
+  background: linear-gradient(135deg, #2f5b6a, #4c9a9a);
+}
+
+.secondary-gradient {
+  background: linear-gradient(135deg, #4c9a9a, #5aaea4);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #5aaea4, #4c9a9a);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #d0cb4d, #b1a942);
+}
+
+/* Button gradients */
+.btn-primary-gradient {
+  background: linear-gradient(to right, #2f5b6a, #4c9a9a);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(to right, #2f5b6a, #5aaea4);
+  box-shadow: 0 4px 12px rgba(47, 91, 106, 0.3);
+}
+
+.btn-secondary-gradient {
+  background: linear-gradient(to right, #4c9a9a, #5aaea4);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-gradient:hover {
+  background: linear-gradient(to right, #4c9a9a, #5aaea4);
+  box-shadow: 0 4px 12px rgba(76, 154, 154, 0.3);
+}
+
+.btn-brand-gradient {
+  background: linear-gradient(to right, #d0cb4d, #b1a942);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-gradient:hover {
+  background: linear-gradient(to right, #c4c43b, #b1a942);
+  box-shadow: 0 4px 12px rgba(208, 203, 77, 0.3);
+}
+
+/* Custom styling for backgrounds with text */
+.overlay-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  @apply border border-border backdrop-blur-sm;
+}
+
+.dark .overlay-card {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Custom utilities for better text contrast */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* For light text on light backgrounds */
+.text-shadow-light {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(0, 0, 0, 0.3);
+}
