@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/Input";
 const Footer = () => {
   return (
     <footer className="bg-card/30 backdrop-blur-sm border-t border-border pt-12 pb-8 bg-gradient-to-r from-primary/20 to-purple-600/20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto md:py-10 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
@@ -86,14 +86,7 @@ const Footer = () => {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-foreground/70 hover:text-primary transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/contact"

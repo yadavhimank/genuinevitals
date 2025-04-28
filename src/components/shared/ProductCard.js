@@ -135,7 +135,7 @@ const ProductCard = ({ product, className }) => {
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
-            <div className="relative h-[300px]">
+            <div className="relative h-full">
               <Image
                 src={product.image || "/images/placeholder.jpg"}
                 alt={product.name}
@@ -203,7 +203,7 @@ const ProductCard = ({ product, className }) => {
               </div>
 
               <div className="flex space-x-3 mt-6">
-                <Button className="flex-1">
+                <Button className="flex-1 ">
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Add to Cart
                 </Button>

@@ -288,11 +288,11 @@ export default function ProductDetail({ params }) {
               className="flex-1 gap-2"
               onClick={() => alert(`Added ${product.name} to cart!`)}
             >
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-10 w-5" />
               Add to Cart
             </Button>
             <Button size="lg" variant="outline" className="flex-1 gap-2">
-              <Heart className="h-5 w-5" />
+              <Heart className="h-10 w-5" />
               Add to Wishlist
             </Button>
           </div>

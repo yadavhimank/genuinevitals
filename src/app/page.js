@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
 
       {/* Featured Products Section */}
-      <section className="py-16">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
             <div>
@@ -37,7 +37,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:mt-14">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 bg-gray-400/30">
+      <section className="py-16 md:py-28 bg-gray-400/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Categories</h2>
@@ -56,13 +56,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {featuredCategories.map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 md:mt-16">
             <Link href="/categories">
               <Button>
                 View All Categories
@@ -75,7 +75,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:mt-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Choose Futurix</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
